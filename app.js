@@ -2,8 +2,10 @@ const express = require("express")
 const app = express();
 const itemsRoutes = require("./items")
 const ExpressError = require("./expressError")
+const morgan = require('morgan')
 
 app.use(express.json());
+app.use(morgan('dev'))
 app.use("/items", itemsRoutes);
 
 /** 404 handler */
